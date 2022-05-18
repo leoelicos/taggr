@@ -74,6 +74,8 @@ npm run seed
 
 ## Video Demo
 
+https://user-images.githubusercontent.com/99461390/169060902-aa4b208f-06e7-4906-9732-afa4881f74bc.mp4
+
 ## E-Commerce Categories API
 
 `http://localhost:3001/api/categories`
@@ -184,7 +186,7 @@ npm run seed
 
 ### Screenshot: Insomnia GET Product Tags
 
-![Screenshot: Insomnia GET](TBA)
+![Screenshot: Insomnia GET Product Tags](https://user-images.githubusercontent.com/99461390/169060661-d4b69c7f-3e09-4109-b11d-67c57a3c0ee2.jpg)
 
 ## Credits
 
