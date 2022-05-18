@@ -8,7 +8,9 @@ router.get('/', async (req, res) => {
   // find all product tags
 
   try {
-    const productTagData = await ProductTag.findAll();
+    const productTagData = await ProductTag.findAll({
+      order: [['tagId', 'ASC']]
+    });
     console.log(JSON.stringify(productTagData));
     res.status(200).json(productTagData);
   } catch (err) {
