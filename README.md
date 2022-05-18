@@ -6,7 +6,7 @@
 
 This RESTful e-commerce back end allows developers to perform CRUD API calls like view, add, update and delete. It would allow a developer to test requests using Insomnia to prepare for front-end integration.
 
-This CLI application uses npm packages `Express`, `Sequelize`, `mysql2` and `chalk`.
+This CLI application uses npm packages `Express`, `Sequelize`, `mysql2` and `dotenv`.
 
 I made this app in order to learn how to implement a database model using Sequelize.
 
@@ -14,43 +14,175 @@ I used GitHub Projects and various Pull Requests to create this app: https://git
 
 ## Installation
 
-Source code: [Ecommerce Back End on GitHub](https://github.com/leoelicos/bcs-13-ecommerce-back-end).
+### 0. Required
 
-| Step                          | Instruction                                                            |
-| ----------------------------- | ---------------------------------------------------------------------- |
-| install node                  | https://nodejs.org/en/download/                                        |
-| install mysql                 | https://dev.mysql.com/downloads/installer/                             |
-| install insomnia              | https://insomnia.rest/download                                         |
-| clone this repo               | `git clone https://github.com/leoelicos/bcs-13-ecommerce-back-end.git` |
-| Go inside the database folder | `cd db`                                                                |
-| invoke mysql                  | `mysql -u root -p`                                                     |
-| Enter your mysql password     | `{password}`                                                           |
-| Create schema                 | `source schema.sql`                                                    |
-| (optional) Add dummy data     | `source seeds.sql`                                                     |
-| Exit mysql                    | `exit`                                                                 |
-| Import dependencies           | `npm i`                                                                |
-| Start the app                 | `npm start`                                                            |
-| Start testing                 | Open Insomnia                                                          |
+| Programs   | Download links                             |
+| ---------- | ------------------------------------------ |
+| `Node`     | https://nodejs.org/en/download/            |
+| `Mysql`    | https://dev.mysql.com/downloads/installer/ |
+| `Insomnia` | https://insomnia.rest/download             |
 
-## Demo
+### 1. Git clone and go inside
 
-### Video demo
+```sh
+git clone https://github.com/leoelicos/bcs-13-ecommerce-back-end.git
 
-TBA
+cd bcs-13-ecommerce-back-end
+```
 
-Also on YouTube … [TBA](**)
+### 2. Rename `.env.EXAMPLE` to `.env`
+
+```sh
+mv .env.Example .env
+```
+
+Input your Mysql credentials. _Don't forget to save!_
+
+- `DB_USER={username}`
+- `DB_PW={password}`
+
+### 3. Go inside `db`, invoke `Mysql`, enter {password}, run `schema`
+
+```sh
+cd db
+
+mysql -u root -p
+
+{password}
+
+source schema.sql;
+
+exit
+```
+
+### 4. Return to root, install dependencies, (optionally) run seed
+
+```sh
+cd ..
+
+npm install
+
+//optional
+npm run seed
+```
 
 ## Usage
 
-### Insomnia
+1. Start the server: `npm start`
 
-| Menu | What it does      |
-| ---- | ----------------- |
-| +    | Add a new request |
+2. Access the APIs with Insomnia
+
+## Video Demo
+
+## E-Commerce Categories API
+
+`http://localhost:3001/api/categories`
+
+> | Request | Sample JSON                   |
+> | ------- | ----------------------------- |
+> | GET     |                               |
+> | POST    | `{"category_name": "silver"}` |
+
+---
+
+## E-Commerce Category By ID API
+
+`http://localhost:3001/api/categories/{id}`
+
+> | Request | Sample JSON                   |
+> | ------- | ----------------------------- |
+> | GET     |                               |
+> | DEL     |                               |
+> | PUT     | `{"category_name": "bronze"}` |
+
+---
+
+## E-Commerce Tags API
+
+`http://localhost:3001/api/tags/`
+
+> | Request | Sample JSON                                 |
+> | ------- | ------------------------------------------- |
+> | GET     |                                             |
+> | POST    | `{ "tag_name": "Golf", "productIds": [3] }` |
+
+---
+
+## E-Commerce Tags By ID API
+
+`http://localhost:3001/api/tags/{id}`
+
+> | Request | Sample JSON         |
+> | ------- | ------------------- |
+> | GET     |                     |
+> | DEL     |                     |
+> | PUT     | {"productIds": [3]} |
+
+---
+
+## E-Commerce Products API
+
+`http://localhost:3001/api/products/`
+
+> | Request | Sample body                                   |
+> | ------- | --------------------------------------------- |
+> | GET     |                                               |
+> | POST    | `{ "product_name": "Golf", "tagIds": [1, 2]}` |
+
+---
+
+## E-Commerce Product By ID API
+
+`http://localhost:3001/api/products/{id}`
+
+> | Request | Sample body        |
+> | ------- | ------------------ |
+> | GET     |                    |
+> | DEL     |                    |
+> | PUT     | `{ "tagIds": [7]}` |
+
+---
+
+## E-Commerce Product Tags API
+
+`http://localhost:3001/api/product_tags/`
+
+> | Request |
+> | ------- |
+> | GET     |
+
+---
+
+## Example of API response
+
+`GET http://localhost:3001/api/categories`
+
+```
+[
+	{
+		"id": 1,
+		"category_name": "Shirts",
+		"products": []
+	},
+	{
+		"id": 2,
+		"category_name": "Shorts",
+		"products": [
+			{
+				"id": 5,
+				"product_name": "Cargo Shorts",
+				"price": 30,
+				"stock": 22,
+				"category_id": 2
+			}
+		]
+	}
+]
+```
 
 ## Screenshots
 
-### Screenshot: Insomnia GET
+### Screenshot: Insomnia GET Product Tags
 
 ![Screenshot: Insomnia GET](TBA)
 
