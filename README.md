@@ -76,90 +76,124 @@ npm run seed
 
 https://user-images.githubusercontent.com/99461390/169060902-aa4b208f-06e7-4906-9732-afa4881f74bc.mp4
 
-## E-Commerce Categories API
+## API
 
-`http://localhost:3001/api/categories`
+### Base URL
 
-> | Request | Sample JSON                   |
-> | ------- | ----------------------------- |
-> | GET     |                               |
-> | POST    | `{"category_name": "silver"}` |
+All URLs start with `http://localhost:3001/api/`.
 
----
-
-## E-Commerce Category By ID API
-
-`http://localhost:3001/api/categories/{id}`
-
-> | Request | Sample JSON                   |
-> | ------- | ----------------------------- |
-> | GET     |                               |
-> | DEL     |                               |
-> | PUT     | `{"category_name": "bronze"}` |
+No API key or authentication is required.
 
 ---
 
-## E-Commerce Tags API
+### Searching
 
-`http://localhost:3001/api/tags/`
+GET request to `/{type}` searches for items which have a specified type.
 
-> | Request | Sample JSON                                 |
-> | ------- | ------------------------------------------- |
-> | GET     |                                             |
-> | POST    | `{ "tag_name": "Golf", "productIds": [3] }` |
+Possible types include:
 
----
+- categories: `categories`
+- tags: `tags`
+- products: `products`
+- product tags: `product_tags`
 
-## E-Commerce Tags By ID API
+**Example**:
 
-`http://localhost:3001/api/tags/{id}`
-
-> | Request | Sample JSON         |
-> | ------- | ------------------- |
-> | GET     |                     |
-> | DEL     |                     |
-> | PUT     | {"productIds": [3]} |
+```sh
+GET http://localhost:3001/api/categories
+```
 
 ---
 
-## E-Commerce Products API
+### Requesting a specific item
 
-`http://localhost:3001/api/products/`
+GET request to `/{type}/{id}` searches for items which have a specified type and specified id.
 
-> | Request | Sample body                                   |
-> | ------- | --------------------------------------------- |
-> | GET     |                                               |
-> | POST    | `{ "product_name": "Golf", "tagIds": [1, 2]}` |
+Possible types include:
 
----
+- categories: `categories`
+- tags: `tags`
+- products: `products`
 
-## E-Commerce Product By ID API
+**Example**:
 
-`http://localhost:3001/api/products/{id}`
-
-> | Request | Sample body        |
-> | ------- | ------------------ |
-> | GET     |                    |
-> | DEL     |                    |
-> | PUT     | `{ "tagIds": [7]}` |
+```sh
+GET http://localhost:3001/api/categories/1
+```
 
 ---
 
-## E-Commerce Product Tags API
+### Adding a specific item
 
-`http://localhost:3001/api/product_tags/`
+POST request to `/{type}/` adds an item of the specified type. You need to include a JSON with a valid body.
 
-> | Request |
-> | ------- |
-> | GET     |
+Possible types and the JSON body:
+
+| `{type}`     | JSON                                                                                                                  |
+| ------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `categories` | `{ "category_name": STRING }`                                                                                         |
+| `tags`       | `{ "tag_name": STRING, "productIds": [INTEGER, INTEGER…] }`                                                           |
+| `products`   | `{ "product_name": STRING, "price": DECIMAL, "stock": INTEGER, category_id: INTEGER, "tagIds": [INTEGER, INTEGER…] }` |
+
+**Example**
+
+```sh
+POST http://localhost:3001/api/tags/
+{ "tag_name": "Golf", "productIds": [3] }
+```
+
+---
+
+### Editing a specific item
+
+PUT request to `/{type}/` edits an item of the specified type. You need to include a JSON with a valid body.
+
+Possible types and the JSON body:
+
+| `{type}`     | JSON                                                                                                                  |
+| ------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `categories` | `{ "category_name": STRING }`                                                                                         |
+| `tags`       | `{ "tag_name": STRING, "productIds": [INTEGER, INTEGER…] }`                                                           |
+| `products`   | `{ "product_name": STRING, "price": DECIMAL, "stock": INTEGER, category_id: INTEGER, "tagIds": [INTEGER, INTEGER…] }` |
+
+**Example**
+
+```sh
+PUT http://localhost:3001/api/products/
+{ "product_name": "Baseball Bats", "price": 20.00, "stock": 3, category_id: 2, "tagIds": [2] }
+```
+
+---
+
+### Deleting a specific item
+
+DELETE request to `/{type}/{id}` deletes items which have a specified type and specified id.
+
+Possible types include:
+
+- categories: `categories`
+- tags: `tags`
+- products: `products`
+
+**Example**:
+
+```sh
+DELETE http://localhost:3001/api/categories/1
+```
 
 ---
 
 ## Example of API response
 
-`GET http://localhost:3001/api/categories`
+Request:
 
+```sh
+GET http://localhost:3001/api/categories
 ```
+
+Response:
+
+```sh
 [
 	{
 		"id": 1,
