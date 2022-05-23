@@ -4,7 +4,8 @@
 
 ## Introduction
 
-This RESTful e-commerce back end allows developers to perform CRUD API calls like view, add, update and delete. It would allow a developer to test requests using Insomnia to prepare for front-end integration.
+This RESTful e-commerce back end allows 
+developers to perform CRUD API calls like view, add, update and delete. It would allow a developer to test requests using Insomnia to prepare for front-end integration.
 
 This CLI application uses npm packages `Express`, `Sequelize`, `mysql2` and `dotenv`.
 
@@ -219,8 +220,7 @@ Response:
 ## Screenshots
 
 ### Screenshot: Insomnia GET Product Tags
-
-![Screenshot: Insomnia GET Product Tags](https://user-images.githubusercontent.com/99461390/169060661-d4b69c7f-3e09-4109-b11d-67c57a3c0ee2.jpg)
+![Screenshot: Insomnia GET Product Tags](https://user-images.githubusercontent.com/99461390/169751137-143415fa-7781-4ff6-b183-de7812ce4b3a.jpg)
 
 ## Credits
 
