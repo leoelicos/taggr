@@ -1,4 +1,4 @@
-const { Product } = require('../models/index.js')
+import { Product } from '../models/index.js'
 
 const productData = [
   {
