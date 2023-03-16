@@ -1,5 +1,6 @@
-const router = require('express').Router()
-const { ProductTag } = require('../../models')
+import { Router } from 'express'
+const router = Router()
+import { ProductTag } from '../../models/index.js'
 
 router.get('/', async (req, res) => {
   try {
@@ -13,4 +14,4 @@ router.get('/', async (req, res) => {
   }
 })
 
-module.exports = router
+export default router

@@ -1,7 +1,7 @@
-const Product = require('./Product')
-const Category = require('./Category')
-const Tag = require('./Tag')
-const ProductTag = require('./ProductTag')
+import Product from './Product.js'
+import Category from './Category.js'
+import Tag from './Tag.js'
+import ProductTag from './ProductTag.js'
 
 Product.belongsTo(Category, {
   foreignKey: 'category_id'
@@ -22,9 +22,4 @@ Tag.belongsToMany(Product, {
   foreignKey: 'tag_id'
 })
 
-module.exports = {
-  Product,
-  Category,
-  Tag,
-  ProductTag
-}
+export { Product, Category, Tag, ProductTag }
