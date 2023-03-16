@@ -1,4 +1,4 @@
-const { Category } = require('../models/index.js')
+import { Category } from '../models/index.js'
 
 const categoryData = [
   { category_name: 'Shirts' },

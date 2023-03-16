@@ -1,4 +1,4 @@
-const { Tag } = require('../models/index.js')
+import { Tag } from '../models/index.js'
 
 const tagData = [
   { tag_name: 'rock music' },

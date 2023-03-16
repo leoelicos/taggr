@@ -1,4 +1,4 @@
-const { ProductTag } = require('../models/index.js')
+import { ProductTag } from '../models/index.js'
 
 const productTagData = [
   { product_id: 1, tag_id: 6 },
