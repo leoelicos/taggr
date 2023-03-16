@@ -1,4 +1,4 @@
-const { ProductTag } = require('../models')
+const { ProductTag } = require('../models/index.js')
 
 const productTagData = [
   { product_id: 1, tag_id: 6 },
@@ -17,4 +17,4 @@ const productTagData = [
 
 const seedProductTags = () => ProductTag.bulkCreate(productTagData)
 
-module.exports = seedProductTags
+export default seedProductTags
