@@ -52,7 +52,14 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
+    const productData = await Product.findByPk(req.params.id)
+    if (!productData) {
+      res.status(404).json({ message: 'No products found with that id!' })
+      return
+    }
+
     await Product.update(req.body, { where: { id: req.params.id } })
+
     const databaseProductTags = await ProductTag.findAll({
       where: { product_id: req.params.id }
     })
