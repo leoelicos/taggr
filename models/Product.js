@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize')
-const sequelize = require('../config/connection')
+import { Model, DataTypes } from 'sequelize'
+import sequelize from '../config/connection.js'
 
 class Product extends Model {}
 Product.init(
@@ -47,4 +47,4 @@ Product.init(
   }
 )
 
-module.exports = Product
+export default Product
