@@ -1,5 +1,5 @@
 {
-  "name": "module-13-challenge-orm",
+  "name": "products-api",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,25 +9,7 @@
     "watch": "nodemon server.js",
     "seed": "node seeds/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@work.github.com:coding-boot-camp/module-13-challenge-orm.git"
-  },
-  "keywords": [
-    "Express",
-    "Sequelize",
-    "Heroku"
-  ],
-  "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^2.0.4",
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "prettier": "^1.19.1"
-  },
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
