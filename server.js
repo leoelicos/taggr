@@ -1,16 +1,26 @@
+import * as dotenv from 'dotenv'
 import express from 'express'
+import cors from 'cors'
 import routes from './routes/index.js'
 
-import sequelize from './config/connection.js'
+import db from './config/connection.js'
+dotenv.config()
 
 const app = express()
-const PORT = process.env.PORT || 3001
+app.use(cors())
 
+const port = process.env.PORT || 3001
+
+app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`)
+  next()
+})
 
 app.use(routes)
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`App listening on port ${PORT}!`))
+db.sync({ force: false }).then(() => {
+  app.listen(port, () => console.log(`App listening on port ${port}!`))
 })
