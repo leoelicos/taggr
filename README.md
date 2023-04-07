@@ -10,7 +10,9 @@ This CLI application uses npm packages `Express`, `Sequelize`, `mysql2` and `dot
 
 I made this app in order to learn how to implement a database model using Sequelize.
 
-I used GitHub Projects and various Pull Requests to create this app: https://github.com/leoelicos/bcs-13-ecommerce-back-end/projects/1
+I used GitHub Projects and various Pull Requests to create this app: https://github.com/leoelicos/taggr/projects/1
+
+Deployed: https://taggr.herokuapp.com/api/products
 
 ## Installation
 
@@ -25,9 +27,9 @@ I used GitHub Projects and various Pull Requests to create this app: https://git
 ### 1. Git clone and go inside
 
 ```sh
-git clone https://github.com/leoelicos/bcs-13-ecommerce-back-end.git
+git clone https://github.com/leoelicos/taggr.git
 
-cd bcs-13-ecommerce-back-end
+cd taggr
 ```
 
 ### 2. Rename `.env.EXAMPLE` to `.env`
